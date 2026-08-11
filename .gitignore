@@ -1,0 +1,28 @@
+# Environment variables and secrets
+.env
+
+# Database (contains contact form submissions)
+database/portfolio.db
+database/*.db
+database/*.db-journal
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
