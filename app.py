@@ -12,9 +12,7 @@ from flask import Flask, jsonify, render_template, request, session
 import database
 
 
-# ============================================================
-# CONFIGURATION
-# ============================================================
+# Configuration
 
 load_dotenv()
 
@@ -27,37 +25,21 @@ if not app.config["SECRET_KEY"]:
         "SECRET_KEY is not set. Create a .env file and add SECRET_KEY."
     )
 
-
-# Secure session cookie settings
-
 app.config["SESSION_COOKIE_HTTPONLY"] = True
-
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
-
 app.config["SESSION_COOKIE_SECURE"] = (
     os.environ.get("FLASK_ENV") == "production"
 )
 
-
-# Email validation
-
-EMAIL_PATTERN = re.compile(
-    r"^[^@\s]+@[^@\s]+\.[^@\s]+$"
-)
+EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 
-# ============================================================
-# DATABASE
-# ============================================================
-
-# Make sure the database exists when Flask starts.
+# Database
 
 database.init_db()
 
 
-# ============================================================
-# CSRF PROTECTION
-# ============================================================
+# CSRF Protection
 
 @app.before_request
 def ensure_csrf_token():
@@ -90,26 +72,18 @@ def is_valid_csrf_token(submitted_token):
     )
 
 
-# ============================================================
-# SECURITY HEADERS
-# ============================================================
+# Security Headers
 
 @app.after_request
 def set_security_headers(response):
     """Add basic security headers."""
 
     response.headers["X-Content-Type-Options"] = "nosniff"
-
     response.headers["X-Frame-Options"] = "DENY"
-
-    response.headers["Referrer-Policy"] = (
-        "strict-origin-when-cross-origin"
-    )
-
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response.headers["Permissions-Policy"] = (
         "geolocation=(), microphone=(), camera=()"
     )
-
     response.headers["Content-Security-Policy"] = (
         "default-src 'self'; "
         "style-src 'self' https://fonts.googleapis.com; "
@@ -121,9 +95,7 @@ def set_security_headers(response):
     return response
 
 
-# ============================================================
-# MAIN PAGES
-# ============================================================
+# Main Pages
 
 @app.route("/")
 def home():
@@ -146,193 +118,97 @@ def certifications():
     return render_template("certifications.html")
 
 
-# ============================================================
-# CONTACT FORM
-# ============================================================
+# Contact Form
 
 @app.route("/contact", methods=["POST"])
 def contact():
     """Process the contact form."""
 
     # Check CSRF token
-
-    submitted_token = request.form.get(
-        "csrf_token",
-        ""
-    )
+    submitted_token = request.form.get("csrf_token", "")
 
     if not is_valid_csrf_token(submitted_token):
+        return jsonify({
+            "success": False,
+            "message": (
+                "Security check failed. "
+                "Please refresh the page and try again."
+            )
+        }), 400
 
-        return jsonify(
-            {
-                "success": False,
-                "message": (
-                    "Security check failed. "
-                    "Please refresh the page and try again."
-                ),
-            }
-        ), 400
-
-
-    # Get and clean form data
-
-    name = request.form.get(
-        "name",
-        ""
-    ).strip()
-
-    email = request.form.get(
-        "email",
-        ""
-    ).strip()
-
-    message = request.form.get(
-        "message",
-        ""
-    ).strip()
-
-
-    # Validation errors
+    # Get form data
+    name = request.form.get("name", "").strip()
+    email = request.form.get("email", "").strip()
+    message = request.form.get("message", "").strip()
 
     errors = []
 
-
     # Validate name
-
     if not name:
-
-        errors.append(
-            "Name is required."
-        )
-
+        errors.append("Name is required.")
     elif len(name) > 100:
-
-        errors.append(
-            "Name must be under 100 characters."
-        )
-
+        errors.append("Name must be under 100 characters.")
 
     # Validate email
-
     if not email:
-
-        errors.append(
-            "Email is required."
-        )
-
+        errors.append("Email is required.")
     elif not EMAIL_PATTERN.match(email):
-
-        errors.append(
-            "Please enter a valid email address."
-        )
-
+        errors.append("Please enter a valid email address.")
 
     # Validate message
-
     if not message:
-
-        errors.append(
-            "Message is required."
-        )
-
+        errors.append("Message is required.")
     elif len(message) > 2000:
-
-        errors.append(
-            "Message must be under 2000 characters."
-        )
-
+        errors.append("Message must be under 2000 characters.")
 
     # Return validation errors
-
     if errors:
-
-        return jsonify(
-            {
-                "success": False,
-                "message": " ".join(errors),
-            }
-        ), 400
-
+        return jsonify({
+            "success": False,
+            "message": " ".join(errors)
+        }), 400
 
     # Save message
-
     try:
-
-        database.insert_message(
-            name,
-            email,
-            message
-        )
+        database.insert_message(name, email, message)
 
     except Exception:
+        app.logger.exception("Failed to save contact message")
 
-        # Log the real error on the server.
-
-        app.logger.exception(
-            "Failed to save contact message"
-        )
-
-        # Do not expose database errors to users.
-
-        return jsonify(
-            {
-                "success": False,
-                "message": (
-                    "Something went wrong. "
-                    "Please try again later."
-                ),
-            }
-        ), 500
-
+        return jsonify({
+            "success": False,
+            "message": "Something went wrong. Please try again later."
+        }), 500
 
     # Successful submission
-
-    return jsonify(
-        {
-            "success": True,
-            "message": (
-                "Thanks for reaching out — "
-                "I'll get back to you soon."
-            ),
-        }
-    )
+    return jsonify({
+        "success": True,
+        "message": "Thanks for reaching out — I'll get back to you soon."
+    })
 
 
-# ============================================================
-# ERROR HANDLERS
-# ============================================================
+# Error Handlers
 
 @app.errorhandler(404)
 def not_found(error):
     """Handle missing pages."""
 
-    return render_template(
-        "404.html"
-    ), 404
+    return render_template("404.html"), 404
 
 
 @app.errorhandler(500)
 def server_error(error):
     """Handle unexpected server errors."""
 
-    return jsonify(
-        {
-            "success": False,
-            "message": "An unexpected server error occurred.",
-        }
-    ), 500
+    return jsonify({
+        "success": False,
+        "message": "An unexpected server error occurred."
+    }), 500
 
 
-# ============================================================
-# RUN APPLICATION
-# ============================================================
+# Run Application
 
 if __name__ == "__main__":
+    debug_mode = os.environ.get("FLASK_ENV") != "production"
 
-    debug_mode = (
-        os.environ.get("FLASK_ENV") != "production"
-    )
-
-    app.run(
-        debug=debug_mode
-    )
+    app.run(debug=debug_mode)
