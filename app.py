@@ -12,15 +12,14 @@ from flask import Flask, jsonify, render_template, request, session
 import database
 
 
-# Load environment variables from .env
+# ============================================================
+# CONFIGURATION
+# ============================================================
+
 load_dotenv()
 
-
-# Create Flask application
 app = Flask(__name__)
 
-
-# Load secret key
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 if not app.config["SECRET_KEY"]:
@@ -30,23 +29,35 @@ if not app.config["SECRET_KEY"]:
 
 
 # Secure session cookie settings
+
 app.config["SESSION_COOKIE_HTTPONLY"] = True
+
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+
 app.config["SESSION_COOKIE_SECURE"] = (
     os.environ.get("FLASK_ENV") == "production"
 )
 
 
-# Basic email validation
+# Email validation
+
 EMAIL_PATTERN = re.compile(
     r"^[^@\s]+@[^@\s]+\.[^@\s]+$"
 )
 
 
+# ============================================================
+# DATABASE
+# ============================================================
+
 # Make sure the database exists when Flask starts.
-# This is important when using Gunicorn on Render.
+
 database.init_db()
 
+
+# ============================================================
+# CSRF PROTECTION
+# ============================================================
 
 @app.before_request
 def ensure_csrf_token():
@@ -64,6 +75,24 @@ def inject_csrf_token():
         "csrf_token": session.get("csrf_token", "")
     }
 
+
+def is_valid_csrf_token(submitted_token):
+    """Check whether the submitted CSRF token is valid."""
+
+    expected_token = session.get("csrf_token", "")
+
+    if not expected_token:
+        return False
+
+    return secrets.compare_digest(
+        expected_token,
+        submitted_token or ""
+    )
+
+
+# ============================================================
+# SECURITY HEADERS
+# ============================================================
 
 @app.after_request
 def set_security_headers(response):
@@ -92,19 +121,9 @@ def set_security_headers(response):
     return response
 
 
-def is_valid_csrf_token(submitted_token):
-    """Check whether the submitted CSRF token is valid."""
-
-    expected_token = session.get("csrf_token", "")
-
-    if not expected_token:
-        return False
-
-    return secrets.compare_digest(
-        expected_token,
-        submitted_token or ""
-    )
-
+# ============================================================
+# MAIN PAGES
+# ============================================================
 
 @app.route("/")
 def home():
@@ -113,14 +132,37 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/projects")
+def projects():
+    """Display the projects page."""
+
+    return render_template("projects.html")
+
+
+@app.route("/certifications")
+def certifications():
+    """Display the certifications page."""
+
+    return render_template("certifications.html")
+
+
+# ============================================================
+# CONTACT FORM
+# ============================================================
+
 @app.route("/contact", methods=["POST"])
 def contact():
     """Process the contact form."""
 
     # Check CSRF token
-    submitted_token = request.form.get("csrf_token", "")
+
+    submitted_token = request.form.get(
+        "csrf_token",
+        ""
+    )
 
     if not is_valid_csrf_token(submitted_token):
+
         return jsonify(
             {
                 "success": False,
@@ -131,46 +173,79 @@ def contact():
             }
         ), 400
 
+
     # Get and clean form data
-    name = request.form.get("name", "").strip()
-    email = request.form.get("email", "").strip()
-    message = request.form.get("message", "").strip()
+
+    name = request.form.get(
+        "name",
+        ""
+    ).strip()
+
+    email = request.form.get(
+        "email",
+        ""
+    ).strip()
+
+    message = request.form.get(
+        "message",
+        ""
+    ).strip()
+
+
+    # Validation errors
 
     errors = []
 
 
     # Validate name
+
     if not name:
-        errors.append("Name is required.")
+
+        errors.append(
+            "Name is required."
+        )
 
     elif len(name) > 100:
+
         errors.append(
             "Name must be under 100 characters."
         )
 
 
     # Validate email
+
     if not email:
-        errors.append("Email is required.")
+
+        errors.append(
+            "Email is required."
+        )
 
     elif not EMAIL_PATTERN.match(email):
+
         errors.append(
             "Please enter a valid email address."
         )
 
 
     # Validate message
+
     if not message:
-        errors.append("Message is required.")
+
+        errors.append(
+            "Message is required."
+        )
 
     elif len(message) > 2000:
+
         errors.append(
             "Message must be under 2000 characters."
         )
 
 
     # Return validation errors
+
     if errors:
+
         return jsonify(
             {
                 "success": False,
@@ -180,6 +255,7 @@ def contact():
 
 
     # Save message
+
     try:
 
         database.insert_message(
@@ -191,11 +267,13 @@ def contact():
     except Exception:
 
         # Log the real error on the server.
+
         app.logger.exception(
             "Failed to save contact message"
         )
 
         # Do not expose database errors to users.
+
         return jsonify(
             {
                 "success": False,
@@ -208,6 +286,7 @@ def contact():
 
 
     # Successful submission
+
     return jsonify(
         {
             "success": True,
@@ -219,11 +298,17 @@ def contact():
     )
 
 
+# ============================================================
+# ERROR HANDLERS
+# ============================================================
+
 @app.errorhandler(404)
 def not_found(error):
     """Handle missing pages."""
 
-    return render_template("index.html"), 404
+    return render_template(
+        "404.html"
+    ), 404
 
 
 @app.errorhandler(500)
@@ -233,10 +318,14 @@ def server_error(error):
     return jsonify(
         {
             "success": False,
-            "message": "An unexpected error occurred.",
+            "message": "An unexpected server error occurred.",
         }
     ), 500
 
+
+# ============================================================
+# RUN APPLICATION
+# ============================================================
 
 if __name__ == "__main__":
 

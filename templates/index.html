@@ -1,1334 +1,585 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tenzin Melongkhарpa | Cybersecurity & GRC Professional</title>
+    <title>Tenzin Melongkharpa | Cybersecurity & GRC Professional</title>
 
-<meta
-name="description"
-content="Tenzin Melongkhарpa — Cybersecurity professional focused on GRC, cloud security, compliance, and secure software development."
+    <meta
+        name="description"
+        content="Tenzin Melongkharpa — Cybersecurity professional focused on GRC, cloud security, compliance, and secure software development."
+    >
 
->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body data-theme="dark">
 
-<!-- ============ NAVIGATION ============ -->
-
+<!-- NAVIGATION -->
 <header class="nav" id="nav">
-  <div class="nav-inner">
+    <div class="nav-inner">
 
+        <a href="#top" class="nav-brand">
+            <span class="nav-brand-mark">TM</span>
+            <span class="nav-brand-text">Portfolio</span>
+        </a>
 
-<a href="#top" class="nav-brand">
-  <span class="nav-brand-mark">TM</span>
-  <span class="nav-brand-text">Tenzin Melongkhарpa</span>
-</a>
+        <nav class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#background">Background</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('certifications') }}">Certs</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-<nav class="nav-links" id="navLinks">
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#certifications">Certs</a>
-  <a href="#resume">Resume</a>
-  <a href="#contact">Contact</a>
-</nav>
+        <div class="nav-actions">
 
-<div class="nav-actions">
+            <button
+                id="themeToggle"
+                class="icon-btn"
+                type="button"
+                aria-label="Switch to light theme"
+            >
+                <span id="themeIcon" aria-hidden="true">&#9789;</span>
+                <span id="themeLabel">Dark</span>
+            </button>
 
-  <button
-    id="themeToggle"
-    class="icon-btn"
-    type="button"
-    aria-label="Switch to light theme"
-  >
-    <span id="themeIcon" aria-hidden="true">&#9789;</span>
-    <span id="themeLabel">Dark</span>
-  </button>
+            <button
+                id="navToggle"
+                class="icon-btn nav-toggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
 
-  <button
-    id="navToggle"
-    class="icon-btn nav-toggle"
-    type="button"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="navLinks"
-  >
-    <span class="nav-toggle-bar"></span>
-    <span class="nav-toggle-bar"></span>
-    <span class="nav-toggle-bar"></span>
-  </button>
-
-</div>
-
-
-  </div>
+        </div>
+    </div>
 </header>
+
 
 <main id="top">
 
-<!-- ============ HERO ============ -->
-
+<!-- HERO -->
 <section class="hero" id="hero">
+    <div class="hero-scanline" aria-hidden="true"></div>
 
-  <div class="hero-scanline" aria-hidden="true"></div>
+    <div class="hero-inner">
 
-  <div class="hero-inner">
+        <div class="status-strip" role="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-strip-text">
+                Open to cybersecurity, GRC, cloud security, and security engineering opportunities
+            </span>
+        </div>
 
+        <p class="eyebrow">
+            Cybersecurity &middot; GRC &middot; Cloud Security
+        </p>
 
-<div class="status-strip" role="status">
-  <span class="status-dot" aria-hidden="true"></span>
-  <span class="status-strip-text">
-    Open to cybersecurity, GRC, cloud security, and security engineering opportunities
-  </span>
-</div>
+        <h1 class="hero-title">
+            Tenzin Melongkharpa
+        </h1>
 
-<p class="eyebrow">
-  Cybersecurity &middot; GRC &middot; Cloud Security
-</p>
+        <p class="hero-subtitle">
+            Cybersecurity Portfolio
+        </p>
 
-<h1 class="hero-title">
-  Tenzin Melongkhарpa
-</h1>
+        <p class="hero-intro">
+            Cybersecurity professional with experience in governance, risk,
+            compliance, cloud security, and secure software development.
+            I enjoy translating security frameworks and requirements into
+            practical controls, documentation, and technical solutions
+            that help organizations reduce risk.
+        </p>
 
-<p class="hero-subtitle">
-  Cybersecurity Professional
-</p>
+        <dl class="hero-readout">
 
-<p class="hero-intro">
-  Cybersecurity professional with experience in governance, risk, compliance,
-  cloud security, and secure software development. I enjoy translating
-  security frameworks and requirements into practical controls, documentation,
-  and technical solutions that help organizations reduce risk.
-</p>
+            <div class="readout-item">
+                <dt>Focus areas</dt>
+                <dd>GRC &middot; Cloud &middot; Security</dd>
+            </div>
 
-<div class="hero-actions">
-  <a href="#projects" class="btn btn-primary">
-    View Projects
-  </a>
+            <div class="readout-item">
+                <dt>Education</dt>
+                <dd>B.S. Cybersecurity</dd>
+            </div>
 
-  <a href="#contact" class="btn btn-secondary">
-    Contact Me
-  </a>
-</div>
+            <div class="readout-item">
+                <dt>Certifications</dt>
+                <dd>10 Credentials</dd>
+            </div>
 
-<dl class="hero-readout">
+        </dl>
 
-  <div class="readout-item">
-    <dt>Focus areas</dt>
-    <dd>GRC &middot; Cloud &middot; Security</dd>
-  </div>
-
-  <div class="readout-item">
-    <dt>Education</dt>
-    <dd>B.S. Cybersecurity</dd>
-  </div>
-
-  <div class="readout-item">
-    <dt>Certifications</dt>
-    <dd>10+ Credentials</dd>
-  </div>
-
-</dl>
-
-
-  </div>
+    </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
 
+<!-- ABOUT -->
 <section class="section" id="about">
+    <div class="section-inner">
 
-  <div class="section-inner">
+        <p class="section-eyebrow">About</p>
 
+        <h2 class="section-title">
+            Security grounded in fundamentals
+        </h2>
 
-<p class="section-eyebrow">About</p>
+        <div class="about-grid">
 
-<h2 class="section-title">
-  Security grounded in fundamentals
-</h2>
+            <div class="about-text">
 
-<div class="about-grid">
+                <p>
+                    I'm a cybersecurity professional with a Bachelor of Science
+                    in Cybersecurity and Information Assurance from Western
+                    Governors University. My experience spans governance, risk
+                    and compliance, cloud security, identity and access
+                    management, and security-focused software development.
+                </p>
 
-  <div class="about-text">
+                <p>
+                    During my cybersecurity internship at dbs Software and
+                    Services, I worked with security policies and compliance
+                    requirements aligned with Texas RAMP and NIST 800-53.
+                    I also created a Compliance Alignment Matrix and audit
+                    checklist and presented risk-based recommendations
+                    to leadership.
+                </p>
 
-    <p>
-      I'm a cybersecurity professional with a Bachelor of Science in
-      Cybersecurity and Information Assurance from Western Governors
-      University. My experience spans governance, risk and compliance,
-      cloud security, identity and access management, and security-focused
-      software development.
-    </p>
+                <p>
+                    Outside of professional experience, I build hands-on
+                    cybersecurity projects involving AI, cloud infrastructure,
+                    identity security, and secure application development.
+                </p>
 
-    <p>
-      During my cybersecurity internship at dbs Software and Services,
-      I worked with security policies and compliance requirements aligned
-      with Texas RAMP and NIST 800-53. I also created a Compliance Alignment
-      Matrix and audit checklist and presented risk-based recommendations
-      to leadership.
-    </p>
+            </div>
 
-    <p>
-      Outside of professional experience, I build hands-on cybersecurity
-      projects involving AI, cloud infrastructure, identity security,
-      and secure application development.
-    </p>
+            <ul class="about-interests">
 
-  </div>
+                <li>
+                    <span class="interest-label">Cybersecurity</span>
+                    <span class="interest-detail">
+                        Security fundamentals, vulnerability assessment, identity security
+                    </span>
+                </li>
 
+                <li>
+                    <span class="interest-label">GRC</span>
+                    <span class="interest-detail">
+                        Risk assessments, control mapping, compliance, audit readiness
+                    </span>
+                </li>
 
-  <ul class="about-interests">
+                <li>
+                    <span class="interest-label">Cloud Security</span>
+                    <span class="interest-detail">
+                        AWS, Azure, IAM, encryption, network segmentation
+                    </span>
+                </li>
 
-    <li>
-      <span class="interest-label">Cybersecurity</span>
-      <span class="interest-detail">
-        Security fundamentals, vulnerability assessment, identity security
-      </span>
-    </li>
+                <li>
+                    <span class="interest-label">Secure Development</span>
+                    <span class="interest-detail">
+                        Python, Flask, secure application design, security controls
+                    </span>
+                </li>
 
-    <li>
-      <span class="interest-label">GRC</span>
-      <span class="interest-detail">
-        Risk assessments, control mapping, compliance, audit readiness
-      </span>
-    </li>
+                <li>
+                    <span class="interest-label">AI &amp; Security</span>
+                    <span class="interest-detail">
+                        AI-assisted applications, information security, emerging AI risks
+                    </span>
+                </li>
 
-    <li>
-      <span class="interest-label">Cloud Security</span>
-      <span class="interest-detail">
-        AWS, Azure, IAM, encryption, network segmentation
-      </span>
-    </li>
+            </ul>
 
-    <li>
-      <span class="interest-label">Secure Development</span>
-      <span class="interest-detail">
-        Python, Flask, secure application design, security controls
-      </span>
-    </li>
-
-    <li>
-      <span class="interest-label">AI &amp; Security</span>
-      <span class="interest-detail">
-        AI-assisted applications, information security, emerging AI risks
-      </span>
-    </li>
-
-  </ul>
-
-</div>
-
-
-  </div>
+        </div>
+    </div>
 </section>
 
-<!-- ============ SKILLS ============ -->
 
+<!-- SKILLS -->
 <section class="section section-alt" id="skills">
+    <div class="section-inner">
+
+        <p class="section-eyebrow">Skills</p>
+
+        <h2 class="section-title">
+            What I bring to a security team
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>Cybersecurity</h3>
+                <ul>
+                    <li>Security fundamentals</li>
+                    <li>Identity &amp; access management</li>
+                    <li>Vulnerability assessment</li>
+                    <li>Security risk analysis</li>
+                    <li>Security documentation</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>GRC</h3>
+                <ul>
+                    <li>Risk assessments</li>
+                    <li>Control mapping</li>
+                    <li>Compliance readiness</li>
+                    <li>Audit preparation</li>
+                    <li>Security policies</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Cloud Security</h3>
+                <ul>
+                    <li>AWS IAM</li>
+                    <li>Azure AD</li>
+                    <li>Encryption &amp; key management</li>
+                    <li>VPC segmentation</li>
+                    <li>Cloud security validation</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Programming</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>Bash</li>
+                    <li>PowerShell</li>
+                    <li>HTML &amp; CSS</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Tools</h3>
+                <ul>
+                    <li>Wireshark</li>
+                    <li>Nmap</li>
+                    <li>Burp Suite</li>
+                    <li>Git &amp; GitHub</li>
+                    <li>SIEM platforms</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Frameworks &amp; Standards</h3>
+                <ul>
+                    <li>NIST CSF</li>
+                    <li>NIST 800-53</li>
+                    <li>CIS Controls</li>
+                    <li>Texas RAMP</li>
+                    <li>StateRAMP</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============ BACKGROUND ============ -->
+
+<section class="section" id="background">
 
   <div class="section-inner">
 
+    <p class="section-eyebrow">
+      Background
+    </p>
 
-<p class="section-eyebrow">Skills</p>
+    <h2 class="section-title">
+      Experience &amp; Education
+    </h2>
 
-<h2 class="section-title">
-  What I bring to a security team
-</h2>
 
-<div class="skills-grid">
+    <!-- EXPERIENCE -->
 
-  <div class="skill-card">
-    <h3>Cybersecurity</h3>
+    <div class="timeline">
 
-    <ul>
-      <li>Security fundamentals</li>
-      <li>Identity &amp; access management</li>
-      <li>Vulnerability assessment</li>
-      <li>Security risk analysis</li>
-      <li>Security documentation</li>
-    </ul>
+      <div class="timeline-entry">
+
+        <div class="timeline-marker" aria-hidden="true"></div>
+
+        <div class="timeline-content">
+
+          <div class="timeline-header">
+
+            <h3>
+              Cybersecurity Intern
+            </h3>
+
+            <span class="timeline-date">
+              Sep 2025 &ndash; Nov 2025
+            </span>
+
+          </div>
+
+          <p class="timeline-org">
+            dbs Software and Services &middot; Florida
+          </p>
+
+          <ul>
+
+            <li>
+              Reviewed and updated security policies aligned with
+              Texas RAMP and NIST 800-53.
+            </li>
+
+            <li>
+              Created a Compliance Alignment Matrix and audit checklist
+              to support compliance readiness.
+            </li>
+
+            <li>
+              Presented compliance findings and risk-based recommendations
+              to leadership.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- EDUCATION -->
+
+      <div class="timeline-entry">
+
+        <div class="timeline-marker" aria-hidden="true"></div>
+
+        <div class="timeline-content">
+
+          <div class="timeline-header">
+
+            <h3>
+              Bachelor of Science
+            </h3>
+
+            <span class="timeline-date">
+              May 2023 &ndash; Nov 2025
+            </span>
+
+          </div>
+
+          <p class="timeline-org">
+            Cybersecurity and Information Assurance
+          </p>
+
+          <p class="timeline-org">
+            Western Governors University &middot; Salt Lake City, UT
+          </p>
+
+          <ul>
+
+            <li>
+              WGU Cyber Club Member
+            </li>
+
+            <li>
+              Excellence Award Recipient
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
-
-  <div class="skill-card">
-    <h3>GRC</h3>
-
-    <ul>
-      <li>Risk assessments</li>
-      <li>Control mapping</li>
-      <li>Compliance readiness</li>
-      <li>Audit preparation</li>
-      <li>Security policies</li>
-    </ul>
-  </div>
-
-
-  <div class="skill-card">
-    <h3>Cloud Security</h3>
-
-    <ul>
-      <li>AWS IAM</li>
-      <li>Azure AD</li>
-      <li>Encryption &amp; key management</li>
-      <li>VPC segmentation</li>
-      <li>Cloud security validation</li>
-    </ul>
-  </div>
-
-
-  <div class="skill-card">
-    <h3>Programming</h3>
-
-    <ul>
-      <li>Python</li>
-      <li>SQL</li>
-      <li>Bash</li>
-      <li>PowerShell</li>
-      <li>HTML &amp; CSS</li>
-    </ul>
-  </div>
-
-
-  <div class="skill-card">
-    <h3>Tools</h3>
-
-    <ul>
-      <li>Wireshark</li>
-      <li>Nmap</li>
-      <li>Burp Suite</li>
-      <li>Git &amp; GitHub</li>
-      <li>SIEM platforms</li>
-    </ul>
-  </div>
-
-
-  <div class="skill-card">
-    <h3>Frameworks &amp; Standards</h3>
-
-    <ul>
-      <li>NIST CSF</li>
-      <li>NIST 800-53</li>
-      <li>CIS Controls</li>
-      <li>Texas RAMP</li>
-      <li>StateRAMP</li>
-    </ul>
-  </div>
-
-</div>
-
-
-  </div>
 </section>
 
-<!-- ============ EXPERIENCE ============ -->
 
-<section class="section" id="experience">
 
-  <div class="section-inner">
-
-
-<p class="section-eyebrow">Experience</p>
-
-<h2 class="section-title">
-  Professional experience
-</h2>
-
-
-<div class="timeline">
-
-  <div class="timeline-entry">
-
-    <div class="timeline-marker" aria-hidden="true"></div>
-
-    <div class="timeline-content">
-
-      <div class="timeline-header">
-
-        <h3>
-          Cybersecurity Intern
-        </h3>
-
-        <span class="timeline-date">
-          Sep 2025 &ndash; Nov 2025
-        </span>
-
-      </div>
-
-      <p class="timeline-org">
-        dbs Software and Services &middot; Florida
-      </p>
-
-      <ul>
-
-        <li>
-          Collaborated with cross-functional stakeholders to review and
-          update security policies aligned with Texas RAMP and NIST 800-53,
-          improving organizational compliance readiness.
-        </li>
-
-        <li>
-          Created a Compliance Alignment Matrix and audit checklist to
-          streamline future assessments and track certification progress.
-        </li>
-
-        <li>
-          Presented compliance findings and risk-based recommendations
-          to leadership, supporting informed security and governance
-          decisions.
-        </li>
-
-      </ul>
-
-    </div>
-  </div>
-
-</div>
-
-
-  </div>
-</section>
-
-<!-- ============ PROJECTS ============ -->
-
-<section class="section section-alt" id="projects">
-
-  <div class="section-inner">
-
-
-<p class="section-eyebrow">Projects</p>
-
-<h2 class="section-title">
-  Things I've built
-</h2>
-
-
-<div
-  class="filter-bar"
-  id="filterBar"
-  role="tablist"
-  aria-label="Filter projects by category"
->
-
-  <button
-    class="filter-btn is-active"
-    data-filter="all"
-    role="tab"
-    aria-selected="true"
-  >
-    All
-  </button>
-
-  <button
-    class="filter-btn"
-    data-filter="ai"
-    role="tab"
-    aria-selected="false"
-  >
-    AI
-  </button>
-
-  <button
-    class="filter-btn"
-    data-filter="cloud"
-    role="tab"
-    aria-selected="false"
-  >
-    Cloud
-  </button>
-
-  <button
-    class="filter-btn"
-    data-filter="iam"
-    role="tab"
-    aria-selected="false"
-  >
-    IAM
-  </button>
-
-</div>
-
-
-<div class="project-grid" id="projectGrid">
-
-
-  <!-- PROJECT 1 -->
-
-  <article class="project-card" data-category="ai">
-
-    <div class="project-card-top">
-
-      <h3>
-        Volunteer Knowledge Assistant
-      </h3>
-
-      <span class="project-tag">
-        AI
-      </span>
-
-    </div>
-
-    <p class="project-desc">
-      A Flask-based knowledge assistant that allows users to upload
-      organizational documents and quickly retrieve information through
-      document search and AI-assisted question answering.
-    </p>
-
-    <div class="project-meta">
-
-      <div class="project-meta-row">
-
-        <span class="project-meta-label">
-          Tech
-        </span>
-
-        <span>
-          Python, Flask, AI, HTML, CSS
-        </span>
-
-      </div>
-
-      <div class="project-meta-row">
-
-        <span class="project-meta-label">
-          Security concepts
-        </span>
-
-        <span>
-          Document security, input handling, application architecture
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="project-links">
-
-      <a
-        href="https://github.com/Tenzin627/Voluntary_Assistant"
-        class="project-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub &#8594;
-      </a>
-
-    </div>
-
-  </article>
-
-
-  <!-- PROJECT 2 -->
-
-  <article class="project-card" data-category="iam">
-
-    <div class="project-card-top">
-
-      <h3>
-        Multi-Factor Authentication Security Implementation
-      </h3>
-
-      <span class="project-tag">
-        IAM
-      </span>
-
-    </div>
-
-    <p class="project-desc">
-      Implemented multi-factor authentication using Azure AD and AWS IAM
-      to strengthen identity security and reduce unauthorized access risk.
-    </p>
-
-    <div class="project-meta">
-
-      <div class="project-meta-row">
-
-        <span class="project-meta-label">
-          Tech
-        </span>
-
-        <span>
-          Azure AD, AWS IAM
-        </span>
-
-      </div>
-
-      <div class="project-meta-row">
-
-        <span class="project-meta-label">
-          Security concepts
-        </span>
-
-        <span>
-          MFA, RBAC, least privilege, identity security
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="project-links">
-
-      <a
-        href="https://github.com/Tenzin627/"
-        class="project-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub &#8594;
-      </a>
-
-    </div>
-
-  </article>
-
-
-  <!-- PROJECT 3 -->
-
-  <article class="project-card" data-category="cloud">
-
-    <div class="project-card-top">
-
-      <h3>
-        Cloud Migration and Security Lab
-      </h3>
-
-      <span class="project-tag">
-        Cloud
-      </span>
-
-    </div>
-
-    <p class="project-desc">
-      Migrated workloads to AWS while implementing IAM, encryption,
-      VPC segmentation, and key management, followed by security
-      validation against cloud security best practices.
-    </p>
-
-    <div class="project-meta">
-
-      <div class="project-meta-row">
-
-        <span class="project-meta-label">
-          Tech
-        </span>
-
-        <span>
-          AWS, IAM, VPC, encryption
-        </span>
-
-      </div>
-
-      <div class="project-meta-row">
-
-        <span class="project-meta-label">
-          Security concepts
-        </span>
-
-        <span>
-          Cloud security, network segmentation, encryption, IAM
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="project-links">
-
-      <a
-        href="https://github.com/Tenzin627/"
-        class="project-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub &#8594;
-      </a>
-
-    </div>
-
-  </article>
-
-<!-- PROJECT 4 -->
-
-<article class="project-card" data-category="ai">
-
-<div class="project-card-top">
-
-<h3>
-  AI Travel Planner
-</h3>
-
-<span class="project-tag">
-  AI
-</span>
-
-</div>
-
-<p class="project-desc"> A Flask-based AI travel planning application that generates personalized travel itineraries based on destination, trip length, budget, and user interests, while saving previous trips in a SQLite database. </p>
-
-<div class="project-meta">
-
-<div class="project-meta-row">
-
-  <span class="project-meta-label">
-    Tech
-  </span>
-
-  <span>
-    Python, Flask, Groq API, Llama, SQLite, HTML, CSS
-  </span>
-
-</div>
-
-<div class="project-meta-row">
-
-  <span class="project-meta-label">
-    Concepts
-  </span>
-
-  <span>
-    AI integration, API development, databases, full-stack development
-  </span>
-
-</div>
-
-</div>
-
-<div class="project-links">
-
-<a
-  href="https://github.com/Tenzin627/AI_Travel_Planner"
-  class="project-link"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  GitHub &#8594;
-</a>
-
-</div>
-
-</article>
-
-</div>
-
-
-  </div>
-</section>
-
-<!-- ============ CERTIFICATIONS ============ -->
-
-<section class="section" id="certifications">
-
-  <div class="section-inner">
-
-
-<p class="section-eyebrow">
-  Certifications
-</p>
-
-<h2 class="section-title">
-  Credentials on record
-<a
-    href="https://www.credly.com/users/tenzin-melongkharpa"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Credly Profile &#8594;
-  </a>
-</h2>
-
-
-<div class="cert-grid">
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        CompTIA A+
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-      Issued by CompTIA
-    </p>
-<a
-    href="https://www.credly.com/badges/d14723a8-496f-4160-b085-ae701e260738/public_url"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        CompTIA Network+
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-      Issued by CompTIA
-    </p>
-
-<a
-    href="https://www.credly.com/badges/4e89be66-55ed-42bd-bd9c-a7d3f2af62b7/public_url"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        CompTIA Security+
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-      Issued by CompTIA
-    </p>
-
-<a
-    href="https://www.credly.com/badges/bd75fe87-a1bf-4b37-abcd-16a0c1524c60/public_url"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        CompTIA Project+
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-     Issued by CompTIA
-    </p>
-
-<a
-    href="https://www.credly.com/badges/fdca96f6-4428-46a6-b4e1-197d9853b4ff/public_url"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        CompTIA CySA+
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-     Issued by CompTIA
-    </p>
-
-<a
-    href="https://www.credly.com/badges/aba9e08a-7157-40f3-bdc5-8a29a1537511/public_url"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        CompTIA PenTest+
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-     Issued by CompTIA
-    </p>
-
-<a
-    href="https://www.credly.com/badges/9056ca0f-df62-489a-98cc-dff1d6be14f2/public_url"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        Linux Essentials
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-      Linux Professional Institute
-    </p>
-
-<a
-    href="https://cs.lpi.org/caf/Xamman/certification/verify/LPI000613573/3rhfxjqjdy"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        ITIL Foundation
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-      ITIL
-    </p>
-
-<a
-    href="{{ url_for('static', filename='certs/IT_service_management.pdf') }}"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        SSCP
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-      (ISC)²
-    </p>
-
-  </div>
-
-
-  <div class="cert-card">
-
-    <div class="cert-card-top">
-
-      <h3>
-        Oracle Foundation Associate
-      </h3>
-
-      <span class="cert-status">
-        Certified
-      </span>
-
-    </div>
-
-    <p class="cert-org">
-      Oracle
-    </p>
-
-<a
-    href="{{ url_for('static', filename='certs/Oracle_Foundation.pdf') }}"
-    class="project-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Credential &#8594;
-  </a>
-
-  </div>
-
-
-</div>
-
-
-  </div>
-</section>
-
-<!-- ============ EDUCATION ============ -->
-
-<section class="section section-alt" id="education">
-
-  <div class="section-inner">
-
-
-<p class="section-eyebrow">
-  Education
-</p>
-
-<h2 class="section-title">
-  Academic background
-</h2>
-
-
-<div class="timeline">
-
-  <div class="timeline-entry">
-
-    <div class="timeline-marker" aria-hidden="true"></div>
-
-    <div class="timeline-content">
-
-      <div class="timeline-header">
-
-        <h3>
-          Bachelor of Science
-        </h3>
-
-        <span class="timeline-date">
-          May 2023 &ndash; Nov 2025
-        </span>
-
-      </div>
-
-      <p class="timeline-org">
-        Cybersecurity and Information Assurance
-      </p>
-
-      <p class="timeline-org">
-        Western Governors University &middot; Salt Lake City, UT
-      </p>
-
-      <ul>
-
-        <li>
-          WGU Cyber Club Member
-        </li>
-
-        <li>
-          Excellence Award Recipient
-        </li>
-
-      </ul>
-
-    </div>
-  </div>
-
-</div>
-
-
-  </div>
-</section>
-
-<!-- ============ RESUME ============ -->
-
+<!-- RESUME -->
 <section class="section resume-section" id="resume">
+    <div class="section-inner resume-inner">
 
-  <div class="section-inner resume-inner">
+        <p class="section-eyebrow">Resume</p>
 
+        <h2 class="section-title">
+            Download Resume
+        </h2>
 
-<p class="section-eyebrow">
-  Resume
-</p>
+        <p class="resume-text">
+            View my education, professional experience, cybersecurity
+            projects, technical skills, and certifications in one document.
+        </p>
 
-<h2 class="section-title">
-  Full background, one PDF
-</h2>
+        <a
+            href="{{ url_for('static', filename='resume.pdf') }}"
+            class="btn btn-primary"
+            download
+        >
+            Click to download
+        </a>
 
-<p class="resume-text">
-  View my education, professional experience, cybersecurity projects,
-  technical skills, and certifications in one document.
-</p>
-
-<a
-  href="{{ url_for('static', filename='resume.pdf') }}"
-  class="btn btn-primary"
-  download
->
-  Download Resume
-</a>
-
-
-  </div>
+    </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
 
+<!-- CONTACT -->
 <section class="section" id="contact">
+    <div class="section-inner">
 
-  <div class="section-inner">
+        <p class="section-eyebrow">Contact</p>
 
+        <h2 class="section-title">
+            Let's talk security
+        </h2>
 
-<p class="section-eyebrow">
-  Contact
-</p>
+        <p class="contact-intro">
+            I'm open to cybersecurity, GRC, cloud security, and security
+            engineering opportunities, as well as conversations about
+            cybersecurity and technology.
+        </p>
 
-<h2 class="section-title">
-  Let's talk security
-</h2>
+        <form class="contact-form" id="contactForm" novalidate>
 
-<p class="contact-intro">
-  I'm open to cybersecurity, GRC, cloud security, and security engineering
-  opportunities, as well as conversations about cybersecurity and technology.
-</p>
+            <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token }}"
+            >
 
+            <div class="form-row">
+                <label for="name">Name</label>
 
-<form
-  class="contact-form"
-  id="contactForm"
-  novalidate
->
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    maxlength="100"
+                    required
+                >
 
-  <input
-    type="hidden"
-    name="csrf_token"
-    value="{{ csrf_token }}"
-  >
-
-
-  <div class="form-row">
-
-    <label for="name">
-      Name
-    </label>
-
-    <input
-      type="text"
-      id="name"
-      name="name"
-      maxlength="100"
-      required
-    >
-
-    <span
-      class="form-error"
-      id="nameError"
-    ></span>
-
-  </div>
+                <span class="form-error" id="nameError"></span>
+            </div>
 
 
-  <div class="form-row">
+            <div class="form-row">
+                <label for="email">Email</label>
 
-    <label for="email">
-      Email
-    </label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    maxlength="150"
+                    required
+                >
 
-    <input
-      type="email"
-      id="email"
-      name="email"
-      maxlength="150"
-      required
-    >
-
-    <span
-      class="form-error"
-      id="emailError"
-    ></span>
-
-  </div>
+                <span class="form-error" id="emailError"></span>
+            </div>
 
 
-  <div class="form-row">
+            <div class="form-row">
+                <label for="message">Message</label>
 
-    <label for="message">
-      Message
-    </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    maxlength="2000"
+                    required
+                ></textarea>
 
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      maxlength="2000"
-      required
-    ></textarea>
-
-    <span
-      class="form-error"
-      id="messageError"
-    ></span>
-
-  </div>
+                <span class="form-error" id="messageError"></span>
+            </div>
 
 
-  <button
-    type="submit"
-    class="btn btn-primary"
-    id="submitBtn"
-  >
-    Send Message
-  </button>
+            <button
+                type="submit"
+                class="btn btn-primary"
+                id="submitBtn"
+            >
+                Send Message
+            </button>
 
-  <p
-    class="form-status"
-    id="formStatus"
-    role="status"
-    aria-live="polite"
-  ></p>
+            <p
+                class="form-status"
+                id="formStatus"
+                role="status"
+                aria-live="polite"
+            ></p>
 
-</form>
+        </form>
 
-
-  </div>
+    </div>
 </section>
 
 </main>
 
-<!-- ============ FOOTER ============ -->
 
+<!-- FOOTER -->
 <footer class="footer">
+    <div class="footer-inner">
 
-  <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="nav-brand-mark">TM</span>
+            <span>Portfolio</span>
+        </div>
 
+        <div class="footer-links">
 
-<div class="footer-brand">
+            <a
+                href="https://github.com/Tenzin627/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
 
-  <span class="nav-brand-mark">
-    TM
-  </span>
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
 
-  <span>
-    Tenzin Melongkhарpa
-  </span>
+            <a href="mailto:fnutengyal@gmail.com">
+                Email
+            </a>
 
-</div>
+        </div>
 
+        <p class="footer-copyright">
+            &copy;
+            <span id="year"></span>
+            Tenzin Melongkharpa. All rights reserved.
+        </p>
 
-<div class="footer-links">
-
-  <a
-    href="https://github.com/Tenzin627/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    GitHub
-  </a>
-
-  <a
-    href="https://www.linkedin.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    LinkedIn
-  </a>
-
-  <a href="mailto:fnutengyal@gmail.com">
-    Email
-  </a>
-
-</div>
-
-
-<p class="footer-copyright">
-  &copy;
-  <span id="year"></span>
-  Tenzin Melongkhарpa. All rights reserved.
-</p>
-
-
-  </div>
-
+    </div>
 </footer>
 
+
+<!-- JavaScript -->
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>

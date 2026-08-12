@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Projects | Tenzin Melongkharpa</title>
+
+    <meta
+        name="description"
+        content="Cybersecurity projects built by Tenzin Melongkharpa."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body data-theme="dark">
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav">
+
+    <div class="nav-inner">
+
+        <a href="/" class="nav-brand">
+
+            <span class="nav-brand-mark">
+                TM
+            </span>
+
+            <span class="nav-brand-text">
+                Portfolio
+            </span>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/#about">
+                About
+            </a>
+
+            <a href="/#skills">
+                Skills
+            </a>
+
+            <a href="/#background">
+                Background
+            </a>
+
+            <a href="/projects">
+                Projects
+            </a>
+
+            <a href="/certifications">
+                Certifications
+            </a>
+
+            <a href="/#contact">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                id="themeToggle"
+                class="icon-btn"
+                type="button"
+                aria-label="Switch theme"
+            >
+
+                <span id="themeIcon">
+                    &#9789;
+                </span>
+
+                <span id="themeLabel">
+                    Dark
+                </span>
+
+            </button>
+
+            <button
+                id="navToggle"
+                class="icon-btn nav-toggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<main>
+
+    <section class="projects-page">
+
+        <div class="projects-container">
+
+
+            <!-- PAGE HEADER -->
+
+            <header class="projects-header">
+
+                <p class="section-eyebrow">
+                    Projects
+                </p>
+
+                <h1>
+                    Things I've Built
+                </h1>
+
+                <p class="projects-intro">
+                    Hands-on projects covering cybersecurity,
+                    AI, cloud security, identity, and software development.
+                </p>
+
+            </header>
+
+
+            <!-- FILTERS -->
+
+            <div
+                class="filter-bar"
+                id="filterBar"
+                role="tablist"
+                aria-label="Filter projects"
+            >
+
+                <button
+                    class="filter-btn is-active"
+                    data-filter="all"
+                    role="tab"
+                    aria-selected="true"
+                >
+                    All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="ai"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    AI
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="cloud"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    Cloud
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="iam"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    IAM
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT GRID -->
+
+            <div
+                class="project-grid projects-page-grid"
+                id="projectGrid"
+            >
+
+
+                <!-- PROJECT 1 -->
+
+                <article
+                    class="project-card"
+                    data-category="ai"
+                >
+
+                    <div class="project-card-top">
+
+                        <h2>
+                            Volunteer Knowledge Assistant
+                        </h2>
+
+                        <span class="project-tag">
+                            AI
+                        </span>
+
+                    </div>
+
+
+                    <p class="project-desc">
+                        A Flask-based knowledge assistant that allows
+                        users to upload organizational documents and
+                        ask questions using AI-assisted search.
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Technology
+                            </span>
+
+                            <span>
+                                Python · Flask · AI · HTML · CSS
+                            </span>
+
+                        </div>
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Focus
+                            </span>
+
+                            <span>
+                                Document security · Input handling · AI
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/Tenzin627/Voluntary_Assistant"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJECT 2 -->
+
+                <article
+                    class="project-card"
+                    data-category="iam"
+                >
+
+                    <div class="project-card-top">
+
+                        <h2>
+                            Multi-Factor Authentication
+                        </h2>
+
+                        <span class="project-tag">
+                            IAM
+                        </span>
+
+                    </div>
+
+
+                    <p class="project-desc">
+                        Implemented multi-factor authentication using
+                        Azure AD and AWS IAM to strengthen identity
+                        security and reduce unauthorized access risk.
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Technology
+                            </span>
+
+                            <span>
+                                Azure AD · AWS IAM
+                            </span>
+
+                        </div>
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Focus
+                            </span>
+
+                            <span>
+                                MFA · RBAC · Least privilege · IAM
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/Tenzin627/"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJECT 3 -->
+
+                <article
+                    class="project-card"
+                    data-category="cloud"
+                >
+
+                    <div class="project-card-top">
+
+                        <h2>
+                            Cloud Migration & Security Lab
+                        </h2>
+
+                        <span class="project-tag">
+                            Cloud
+                        </span>
+
+                    </div>
+
+
+                    <p class="project-desc">
+                        Migrated workloads to AWS while implementing
+                        IAM, encryption, VPC segmentation, and
+                        security validation.
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Technology
+                            </span>
+
+                            <span>
+                                AWS · IAM · VPC · Encryption
+                            </span>
+
+                        </div>
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Focus
+                            </span>
+
+                            <span>
+                                Cloud security · Network segmentation
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/Tenzin627/"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJECT 4 -->
+
+                <article
+                    class="project-card"
+                    data-category="ai"
+                >
+
+                    <div class="project-card-top">
+
+                        <h2>
+                            AI Travel Planner
+                        </h2>
+
+                        <span class="project-tag">
+                            AI
+                        </span>
+
+                    </div>
+
+
+                    <p class="project-desc">
+                        A Flask-based AI application that generates
+                        personalized travel itineraries based on
+                        destination, budget, trip length, and interests.
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Technology
+                            </span>
+
+                            <span>
+                                Python · Flask · Groq · Llama · SQLite
+                            </span>
+
+                        </div>
+
+                        <div class="project-meta-row">
+
+                            <span class="project-meta-label">
+                                Focus
+                            </span>
+
+                            <span>
+                                AI integration · APIs · Databases
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/Tenzin627/AI_Travel_Planner"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+
+            <span class="nav-brand-mark">
+                TM
+            </span>
+
+            <span>
+                Portfolio
+            </span>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a
+                href="https://github.com/Tenzin627/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+
+            <a href="mailto:fnutengyal@gmail.com">
+                Email
+            </a>
+
+        </div>
+
+
+        <p class="footer-copyright">
+
+            &copy;
+            <span id="year"></span>
+            Tenzin Melongkharpa.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
