@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 | Tenzin Melongkharpa</title>
+
+    <meta name="description" content="Page not found.">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body data-theme="dark">
+
+<header class="nav">
+
+    <div class="nav-inner">
+
+        <a href="/" class="nav-brand">
+            <span class="nav-brand-mark">TM</span>
+            <span class="nav-brand-text">Portfolio</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#skills">Skills</a>
+            <a href="/#background">Background</a>
+            <a href="/projects">Projects</a>
+            <a href="/certifications">Certifications</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button id="themeToggle"
+                    class="icon-btn"
+                    type="button"
+                    aria-label="Switch theme">
+
+                <span id="themeIcon">&#9789;</span>
+                <span id="themeLabel">Dark</span>
+
+            </button>
+
+            <button id="navToggle"
+                    class="icon-btn nav-toggle"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="projects-page">
+
+        <div class="section-inner">
+
+            <header class="projects-header">
+
+                <p class="section-eyebrow">
+                    Error 404
+                </p>
+
+                <h1>
+                    Page Not Found
+                </h1>
+
+                <p>
+                    The page you're looking for doesn't exist
+                    or may have been moved.
+                </p>
+
+                <p>
+                    <a href="/" class="project-link">
+                        Return Home →
+                    </a>
+                </p>
+
+            </header>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            <span class="nav-brand-mark">TM</span>
+            <span>Portfolio</span>
+        </div>
+
+        <div class="footer-links">
+
+            <a href="https://github.com/Tenzin627/"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn
+            </a>
+
+            <a href="mailto:fnutengyal@gmail.com">
+                Email
+            </a>
+
+        </div>
+
+        <p class="footer-copyright">
+            &copy; <span id="year"></span>
+            Tenzin Melongkharpa.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
