@@ -158,6 +158,30 @@ This project demonstrates several basic web security practices:
 - HttpOnly cookies
 - SameSite cookies
 - Error handling without exposing database details
+## PostgreSQL Database
+Connect to the Database
+
+Open PowerShell and go to the PostgreSQL bin directory:
+
+```cd "C:\Program Files\PostgreSQL\18\bin"```
+
+Connect to the Render PostgreSQL database:
+
+```.\psql.exe "YOUR_DATABASE_URL"```
+
+Security: Do not commit your database URL, username, or password to GitHub. Store the connection string securely.
+
+View Contact Messages
+
+After connecting to PostgreSQL, run:
+
+```SELECT * FROM messages ORDER BY created_at DESC;```
+
+This displays contact form submissions with the newest messages first.
+
+Exit PostgreSQL
+
+```\q```
 
 ## Tenzin Melongkharpa
 
