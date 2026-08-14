@@ -13,7 +13,7 @@ load_dotenv()
 from flask import Flask, jsonify, render_template, request, session
 
 import database
-
+from services.hibp_service import HIBPServiceError, query_hibp_range
 
 # Configuration
 
@@ -113,6 +113,34 @@ def projects():
 
     return render_template("projects.html")
 
+@app.route("/projects/password-auditor")
+def password_auditor():
+    """Display the Personal Password Auditor."""
+
+    return render_template("projects/password_auditor.html")
+
+
+@app.route("/api/check/<prefix>")
+def check_password(prefix):
+    """Query HIBP using a 5-character SHA-1 hash prefix."""
+
+    # Prefix must be exactly 5 hexadecimal characters.
+    if not re.fullmatch(r"[0-9A-Fa-f]{5}", prefix):
+        return jsonify({
+            "error": "Invalid hash prefix."
+        }), 400
+
+    try:
+        suffixes = query_hibp_range(prefix.upper())
+
+        return jsonify({
+            "suffixes": suffixes
+        })
+
+    except HIBPServiceError as error:
+        return jsonify({
+            "error": str(error)
+        }), 502
 
 @app.route("/certifications")
 def certifications():

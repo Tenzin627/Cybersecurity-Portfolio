@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Projects | Tenzin Melongkharpa</title>
-
-    <meta name="description"
-          content="Cybersecurity projects built by Tenzin Melongkharpa.">
+    <meta name="description" content="Cybersecurity projects built by Tenzin Melongkharpa.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body data-theme="dark">
@@ -41,20 +34,13 @@
         </nav>
 
         <div class="nav-actions">
-            <button id="themeToggle"
-                    class="icon-btn"
-                    type="button"
-                    aria-label="Switch theme">
+            <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch theme">
                 <span id="themeIcon">&#9789;</span>
                 <span id="themeLabel">Dark</span>
             </button>
 
-            <button id="navToggle"
-                    class="icon-btn nav-toggle"
-                    type="button"
-                    aria-label="Open menu"
-                    aria-expanded="false"
-                    aria-controls="navLinks">
+            <button id="navToggle" class="icon-btn nav-toggle" type="button"
+                    aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
@@ -77,42 +63,54 @@
                 </p>
             </header>
 
-            <div class="filter-bar"
-                 id="filterBar"
-                 role="tablist"
-                 aria-label="Filter projects">
-
-                <button class="filter-btn is-active"
-                        data-filter="all"
-                        role="tab"
-                        aria-selected="true">
-                    All
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="ai"
-                        role="tab"
-                        aria-selected="false">
-                    AI
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="cloud"
-                        role="tab"
-                        aria-selected="false">
-                    Cloud
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="iam"
-                        role="tab"
-                        aria-selected="false">
-                    IAM
-                </button>
+            <div class="filter-bar" id="filterBar" role="tablist" aria-label="Filter projects">
+                <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI</button>
+                <button class="filter-btn" data-filter="cloud" role="tab" aria-selected="false">Cloud</button>
+                <button class="filter-btn" data-filter="iam" role="tab" aria-selected="false">IAM</button>
+                <button class="filter-btn" data-filter="security" role="tab" aria-selected="false">Security</button>
             </div>
 
             <div class="project-grid" id="projectGrid">
 
+                <!-- Project 1 -->
+                <article class="project-card" data-category="security">
+                    <div class="project-card-top">
+                        <h2>Personal Password Auditor</h2>
+                        <span class="project-tag">Security</span>
+                    </div>
+
+                    <p class="project-desc">
+                        A privacy-focused password auditing tool that checks
+                        whether a password has appeared in known data breaches
+                        using the Have I Been Pwned API and k-anonymity.
+                    </p>
+
+                    <div class="project-meta">
+                        <div class="project-meta-row">
+                            <span class="project-meta-label">Technology</span>
+                            Python · Flask · JavaScript · HIBP API · k-Anonymity · HTML · CSS
+                        </div>
+
+                        <div class="project-meta-row">
+                            <span class="project-meta-label">Focus</span>
+                            Privacy · Password Security · API Security · Secure Input Handling
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="/projects/password-auditor" class="project-link">
+                            Visit Project →
+                        </a>
+
+                        <a href="https://github.com/Tenzin627/YOUR-REPO-NAME"
+                           class="project-link" target="_blank" rel="noopener noreferrer">
+                            GitHub →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
                 <article class="project-card" data-category="ai">
                     <div class="project-card-top">
                         <h2>Volunteer Knowledge Assistant</h2>
@@ -120,9 +118,9 @@
                     </div>
 
                     <p class="project-desc">
-                        A Flask-based knowledge assistant that allows
-                        users to upload organizational documents and
-                        ask questions using AI-assisted search.
+                        A Flask-based knowledge assistant that allows users
+                        to upload organizational documents and ask questions
+                        using AI-assisted search.
                     </p>
 
                     <div class="project-meta">
@@ -133,20 +131,19 @@
 
                         <div class="project-meta-row">
                             <span class="project-meta-label">Focus</span>
-                            Document security · Input handling · AI
+                            Document Security · Input Handling · AI
                         </div>
                     </div>
 
                     <div class="project-links">
                         <a href="https://github.com/Tenzin627/Voluntary_Assistant"
-                           class="project-link"
-                           target="_blank"
-                           rel="noopener noreferrer">
+                           class="project-link" target="_blank" rel="noopener noreferrer">
                             GitHub →
                         </a>
                     </div>
                 </article>
 
+                <!-- Project 3 -->
                 <article class="project-card" data-category="iam">
                     <div class="project-card-top">
                         <h2>Multi-Factor Authentication</h2>
@@ -154,9 +151,9 @@
                     </div>
 
                     <p class="project-desc">
-                        Implemented multi-factor authentication using
-                        Azure AD and AWS IAM to strengthen identity
-                        security and reduce unauthorized access risk.
+                        Implemented multi-factor authentication using Azure AD
+                        and AWS IAM to strengthen identity security and reduce
+                        unauthorized access risk.
                     </p>
 
                     <div class="project-meta">
@@ -167,20 +164,19 @@
 
                         <div class="project-meta-row">
                             <span class="project-meta-label">Focus</span>
-                            MFA · RBAC · Least privilege · IAM
+                            MFA · RBAC · Least Privilege · IAM
                         </div>
                     </div>
 
                     <div class="project-links">
                         <a href="https://github.com/Tenzin627/"
-                           class="project-link"
-                           target="_blank"
-                           rel="noopener noreferrer">
+                           class="project-link" target="_blank" rel="noopener noreferrer">
                             GitHub →
                         </a>
                     </div>
                 </article>
 
+                <!-- Project 4 -->
                 <article class="project-card" data-category="cloud">
                     <div class="project-card-top">
                         <h2>Cloud Migration &amp; Security Lab</h2>
@@ -188,9 +184,8 @@
                     </div>
 
                     <p class="project-desc">
-                        Migrated workloads to AWS while implementing
-                        IAM, encryption, VPC segmentation, and
-                        security validation.
+                        Migrated workloads to AWS while implementing IAM,
+                        encryption, VPC segmentation, and security validation.
                     </p>
 
                     <div class="project-meta">
@@ -201,20 +196,19 @@
 
                         <div class="project-meta-row">
                             <span class="project-meta-label">Focus</span>
-                            Cloud security · Network segmentation
+                            Cloud Security · Network Segmentation
                         </div>
                     </div>
 
                     <div class="project-links">
                         <a href="https://github.com/Tenzin627/"
-                           class="project-link"
-                           target="_blank"
-                           rel="noopener noreferrer">
+                           class="project-link" target="_blank" rel="noopener noreferrer">
                             GitHub →
                         </a>
                     </div>
                 </article>
 
+                <!-- Project 5 -->
                 <article class="project-card" data-category="ai">
                     <div class="project-card-top">
                         <h2>AI Travel Planner</h2>
@@ -222,9 +216,9 @@
                     </div>
 
                     <p class="project-desc">
-                        A Flask-based AI application that generates
-                        personalized travel itineraries based on
-                        destination, budget, trip length, and interests.
+                        A Flask-based AI application that generates personalized
+                        travel itineraries based on destination, budget, trip
+                        length, and interests.
                     </p>
 
                     <div class="project-meta">
@@ -235,15 +229,13 @@
 
                         <div class="project-meta-row">
                             <span class="project-meta-label">Focus</span>
-                            AI integration · APIs · Databases
+                            AI Integration · APIs · Databases
                         </div>
                     </div>
 
                     <div class="project-links">
                         <a href="https://github.com/Tenzin627/AI_Travel_Planner"
-                           class="project-link"
-                           target="_blank"
-                           rel="noopener noreferrer">
+                           class="project-link" target="_blank" rel="noopener noreferrer">
                             GitHub →
                         </a>
                     </div>
@@ -263,18 +255,8 @@
         </div>
 
         <div class="footer-links">
-            <a href="https://github.com/Tenzin627/"
-               target="_blank"
-               rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            <a href="https://www.linkedin.com/"
-               target="_blank"
-               rel="noopener noreferrer">
-                LinkedIn
-            </a>
-
+            <a href="https://github.com/Tenzin627/" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="mailto:fnutengyal@gmail.com">Email</a>
         </div>
 
