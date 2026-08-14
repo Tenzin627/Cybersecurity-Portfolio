@@ -1,10 +1,5 @@
-"""
-Database helper module for the Cybersecurity Portfolio website.
-"""
-
 import os
-import psycopg2
-from psycopg2.extras import RealDictCursor
+import psycopg
 from datetime import datetime, timezone
 
 
@@ -17,7 +12,7 @@ def get_db_connection():
     if not DATABASE_URL:
         raise RuntimeError("DATABASE_URL is not set.")
 
-    return psycopg2.connect(DATABASE_URL)
+    return psycopg.connect(DATABASE_URL)
 
 
 def init_db():
